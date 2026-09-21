@@ -1,20 +1,27 @@
 # PLSQL Assignment One - Sunrise Supermarket
-
 **Student name: Neza Faith Nina
 **Student ID: 20252SEN256
 **DBMS used:PostgreSQL
 
 
 
+
+> **How to use this file:** every `📸 TAKE SCREENSHOT` line marks a point where you run the query in your SQL tool,
+> capture the result grid, save it in the `screenshots/` folder with the file name shown, and keep the image line under it.
+> The result tables below are what you should see (I checked them on a test database). If your tool shows dates as
+> `02-MAR-26` instead of `2026-03-02`, that is just the Oracle date display format and is fine.
+
+---
+
 ## 1. Business scenario summary
 
 Sunrise Supermarket sells products to customers, who place orders containing one or more items. Management wants to understand who their customers are, what they buy, and how sales are trending over time.
 
 The database has four tables:
-- customers (customer_id, customer_name, email, city)
-- products (product_id, product_name, category, price)
-- orders (order_id, customer_id, order_date)
-- order_items (order_item_id, order_id, product_id, quantity)
+- `customers` (customer_id, customer_name, email, city)
+- `products` (product_id, product_name, category, price)
+- `orders` (order_id, customer_id, order_date)
+- `order_items` (order_item_id, order_id, product_id, quantity)
 
 ## 2. What I did and how to run it
 
@@ -22,16 +29,131 @@ The database has four tables:
 2. Wrote 3 JOIN queries, 1 CTE query and 4 window-function queries (below).
 3. Interpreted the results for management.
 
+**To run:** open Oracle SQL Developer (or Live SQL / SQL*Plus), run `assignment_1.sql` from top to bottom, and run each query on its own to see its result.
+
+---
+
+## 3. Sample data
+
+Screenshots of the loaded tables prove the data meets the requirements (at least 5 customers, 8 products in 3+ categories, 15 orders, 25 order items).
+
+### Table: customers
+
+📸 **TAKE SCREENSHOT** -> save as `screenshots/data_customers.png`
+
+![customers](screenshots/data_customers.png)
+
+| customer_id | customer_name | email | city |
+|---|---|---|---|
+| 1 | Alice Uwase | alice.uwase@example.com | Kigali |
+| 2 | Eric Nshuti | eric.nshuti@example.com | Huye |
+| 3 | Grace Mukamana | grace.mukamana@example.com | Musanze |
+| 4 | David Habimana | david.habimana@example.com | Kigali |
+| 5 | Sandrine Ingabire | sandrine.ingabire@example.com | Rubavu |
+| 6 | Patrick Mugisha | patrick.mugisha@example.com | Kigali |
 
 
+### Table: products
 
-## 5. Queries, explanations and results
+📸 **TAKE SCREENSHOT** -> save as `screenshots/data_products.png`
+
+![products](screenshots/data_products.png)
+
+| product_id | product_name | category | price |
+|---|---|---|---|
+| 1 | Rice 5kg | Grocery | 7500 |
+| 2 | Cooking Oil 3L | Grocery | 9000 |
+| 3 | Fresh Milk 1L | Dairy | 1200 |
+| 4 | Yoghurt 500ml | Dairy | 1500 |
+| 5 | Orange Juice 1L | Beverages | 2500 |
+| 6 | Bottled Water 1.5L | Beverages | 700 |
+| 7 | Laundry Detergent 1kg | Household | 4500 |
+| 8 | Dish Soap 500ml | Household | 2200 |
+
+
+### Table: orders
+
+📸 **TAKE SCREENSHOT** -> save as `screenshots/data_orders.png`
+
+![orders](screenshots/data_orders.png)
+
+| order_id | customer_id | order_date |
+|---|---|---|
+| 1 | 1 | 2026-03-02 |
+| 2 | 2 | 2026-03-05 |
+| 3 | 3 | 2026-03-12 |
+| 4 | 1 | 2026-03-20 |
+| 5 | 4 | 2026-04-03 |
+| 6 | 2 | 2026-04-10 |
+| 7 | 5 | 2026-04-18 |
+| 8 | 1 | 2026-05-02 |
+| 9 | 3 | 2026-05-09 |
+| 10 | 4 | 2026-05-21 |
+| 11 | 2 | 2026-06-04 |
+| 12 | 1 | 2026-06-15 |
+| 13 | 5 | 2026-07-01 |
+| 14 | 3 | 2026-07-12 |
+| 15 | 1 | 2026-08-03 |
+
+
+### Table: order_items
+
+📸 **TAKE SCREENSHOT** -> save as `screenshots/data_order_items.png`
+
+![order_items](screenshots/data_order_items.png)
+
+| order_item_id | order_id | product_id | quantity |
+|---|---|---|---|
+| 1 | 1 | 1 | 2 |
+| 2 | 1 | 3 | 3 |
+| 3 | 2 | 2 | 1 |
+| 4 | 3 | 5 | 4 |
+| 5 | 3 | 6 | 6 |
+| 6 | 4 | 7 | 1 |
+| 7 | 4 | 8 | 2 |
+| 8 | 5 | 1 | 1 |
+| 9 | 5 | 4 | 4 |
+| 10 | 6 | 3 | 2 |
+| 11 | 7 | 2 | 2 |
+| 12 | 7 | 7 | 1 |
+| 13 | 8 | 1 | 3 |
+| 14 | 8 | 5 | 2 |
+| 15 | 9 | 6 | 10 |
+| 16 | 10 | 8 | 3 |
+| 17 | 11 | 4 | 5 |
+| 18 | 11 | 2 | 1 |
+| 19 | 12 | 7 | 2 |
+| 20 | 13 | 1 | 1 |
+| 21 | 13 | 3 | 4 |
+| 22 | 14 | 5 | 3 |
+| 23 | 14 | 8 | 1 |
+| 24 | 15 | 2 | 2 |
+| 25 | 15 | 6 | 5 |
+
+
+### Table: row counts
+
+📸 **TAKE SCREENSHOT** -> save as `screenshots/data_counts.png`
+
+![row counts](screenshots/data_counts.png)
+
+| table_name | row_count |
+|---|---|
+| customers | 6 |
+| products | 8 |
+| orders | 15 |
+| order_items | 25 |
+
+
+---
+
+## 4. Queries, explanations and results
 
 ### Q1 (JOIN) - Orders with customer name, city and date (INNER JOIN)
 
 **What it answers:** Shows who placed every order, where they live and when. Only orders that have a matching customer appear (all 15).
 
-
+```sql
 SELECT o.order_id,
        c.customer_name,
        c.city,
@@ -39,8 +161,11 @@ SELECT o.order_id,
 FROM   orders o
 INNER JOIN customers c ON c.customer_id = o.customer_id
 ORDER BY o.order_date, o.order_id;
+```
 
-[Q1 result](screenshots/q1.png)
+📸 **TAKE SCREENSHOT** of the Q1 result -> save as `screenshots/q1.png`
+
+![Q1 result](screenshots/q1.png)
 
 **Expected result (15 rows):**
 
@@ -67,7 +192,7 @@ ORDER BY o.order_date, o.order_id;
 
 **What it answers:** Shows what was bought on each order line, with product name, category, unit price and quantity (all 25 lines).
 
-
+```sql
 SELECT oi.order_item_id,
        oi.order_id,
        p.product_name,
@@ -77,6 +202,9 @@ SELECT oi.order_item_id,
 FROM   order_items oi
 INNER JOIN products p ON p.product_id = oi.product_id
 ORDER BY oi.order_item_id;
+```
+
+📸 **TAKE SCREENSHOT** of the Q2 result -> save as `screenshots/q2.png`
 
 ![Q2 result](screenshots/q2.png)
 
@@ -115,7 +243,7 @@ ORDER BY oi.order_item_id;
 
 **What it answers:** Keeps every customer even without orders. Patrick Mugisha has no orders, so his order columns are NULL. That is why there are 16 rows (15 orders + 1 customer with none).
 
-sql
+```sql
 SELECT c.customer_id,
        c.customer_name,
        o.order_id,
@@ -123,6 +251,9 @@ SELECT c.customer_id,
 FROM   customers c
 LEFT JOIN orders o ON o.customer_id = c.customer_id
 ORDER BY c.customer_id, o.order_date;
+```
+
+📸 **TAKE SCREENSHOT** of the Q3 result -> save as `screenshots/q3.png`
 
 ![Q3 result](screenshots/q3.png)
 
@@ -152,7 +283,7 @@ ORDER BY c.customer_id, o.order_date;
 
 **What it answers:** The CTE `customer_totals` calculates each customer's total spend (quantity x price). The main query keeps only customers whose total is higher than the average of those totals (39,840). Only Alice qualifies.
 
-sql
+```sql
 WITH customer_totals AS (
   SELECT c.customer_id,
          c.customer_name,
@@ -169,6 +300,9 @@ SELECT customer_id,
 FROM   customer_totals
 WHERE  total_spent > (SELECT AVG(total_spent) FROM customer_totals)
 ORDER BY total_spent DESC;
+```
+
+📸 **TAKE SCREENSHOT** of the Q4 result -> save as `screenshots/q4.png`
 
 ![Q4 result](screenshots/q4.png)
 
@@ -183,7 +317,7 @@ ORDER BY total_spent DESC;
 
 **What it answers:** Ranks customers from highest to lowest spender using `RANK() OVER (ORDER BY total_spent DESC)` on top of the same CTE.
 
-sql
+```sql
 WITH customer_totals AS (
   SELECT c.customer_id,
          c.customer_name,
@@ -200,6 +334,9 @@ SELECT customer_id,
        RANK() OVER (ORDER BY total_spent DESC) AS spend_rank
 FROM   customer_totals
 ORDER BY spend_rank;
+```
+
+📸 **TAKE SCREENSHOT** of the Q5 result -> save as `screenshots/q5.png`
 
 ![Q5 result](screenshots/q5.png)
 
@@ -218,7 +355,7 @@ ORDER BY spend_rank;
 
 **What it answers:** `ROW_NUMBER() OVER (PARTITION BY customer ORDER BY order_date)` restarts at 1 for each customer, so we see their 1st, 2nd, 3rd order and so on.
 
-sql
+```sql
 SELECT c.customer_id,
        c.customer_name,
        o.order_id,
@@ -230,6 +367,9 @@ SELECT c.customer_id,
 FROM   orders o
 JOIN   customers c ON c.customer_id = o.customer_id
 ORDER BY c.customer_id, order_number;
+```
+
+📸 **TAKE SCREENSHOT** of the Q6 result -> save as `screenshots/q6.png`
 
 ![Q6 result](screenshots/q6.png)
 
@@ -258,7 +398,7 @@ ORDER BY c.customer_id, order_number;
 
 **What it answers:** A CTE first finds revenue per order. `SUM(order_total) OVER (ORDER BY order_date ...)` then adds each order to everything before it, showing cumulative revenue (ends at 199,200).
 
-sql
+```sql
 WITH order_revenue AS (
   SELECT o.order_id,
          o.order_date,
@@ -277,7 +417,9 @@ SELECT order_id,
        ) AS running_total
 FROM   order_revenue
 ORDER BY order_date, order_id;
+```
 
+📸 **TAKE SCREENSHOT** of the Q7 result -> save as `screenshots/q7.png`
 
 ![Q7 result](screenshots/q7.png)
 
@@ -306,7 +448,7 @@ ORDER BY order_date, order_id;
 
 **What it answers:** `LAG(order_date)` fetches the customer's previous order date; subtracting gives days between orders. Rows without a previous order are removed, so only customers with more than one order remain.
 
-sql
+```sql
 WITH order_gaps AS (
   SELECT c.customer_id,
          c.customer_name,
@@ -328,7 +470,9 @@ SELECT customer_id,
 FROM   order_gaps
 WHERE  previous_order_date IS NOT NULL
 ORDER BY customer_id, order_date;
+```
 
+📸 **TAKE SCREENSHOT** of the Q8 result -> save as `screenshots/q8.png`
 
 ![Q8 result](screenshots/q8.png)
 
