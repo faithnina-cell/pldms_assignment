@@ -32,7 +32,7 @@ Screenshots of the loaded tables prove the data meets the requirements (at least
 ### Table: customers
 
 
-![customers](screenshots/data_customer.png.jpg)
+![customers](screenshots/customer.png.jpg)
 
 
 
@@ -84,7 +84,7 @@ INNER JOIN customers c ON c.customer_id = o.customer_id
 ORDER BY o.order_date, o.order_id;
 ```
 
-📸 **TAKE SCREENSHOT** of the Q1 result -> save as `screenshots/q1.png`
+
 
 ![Q1 result](screenshots/q1.png.jpg)
 
@@ -106,7 +106,6 @@ INNER JOIN products p ON p.product_id = oi.product_id
 ORDER BY oi.order_item_id;
 ```
 
-📸 **TAKE SCREENSHOT** of the Q2 result -> save as `screenshots/q2.png`
 
 ![Q2 result](screenshots/qn2.png.jpg)
 
@@ -127,7 +126,7 @@ LEFT JOIN orders o ON o.customer_id = c.customer_id
 ORDER BY c.customer_id, o.order_date;
 ```
 
-📸 **TAKE SCREENSHOT** of the Q3 result -> save as `screenshots/q3.png`
+
 
 ![Q3 result](screenshots/qn3.png.jpg)
 
@@ -176,7 +175,7 @@ WHERE  total_spent > (SELECT AVG(total_spent) FROM customer_totals)
 ORDER BY total_spent DESC;
 ```
 
-📸 **TAKE SCREENSHOT** of the Q4 result -> save as `screenshots/q4.png`
+
 
 ![Q4 result](screenshots/qn4.png.jpg)
 
@@ -210,8 +209,6 @@ FROM   customer_totals
 ORDER BY spend_rank;
 ```
 
-📸 **TAKE SCREENSHOT** of the Q5 result -> save as `screenshots/q5.png`
-
 ![Q5 result](screenshots/qn5.png.jpg)
 
 **Expected result (5 rows):**
@@ -243,7 +240,7 @@ JOIN   customers c ON c.customer_id = o.customer_id
 ORDER BY c.customer_id, order_number;
 ```
 
-📸 **TAKE SCREENSHOT** of the Q6 result -> save as `screenshots/q6.png`
+
 
 ![Q6 result](screenshots/qn6.png.jpg)
 
@@ -293,7 +290,6 @@ FROM   order_revenue
 ORDER BY order_date, order_id;
 ```
 
-📸 **TAKE SCREENSHOT** of the Q7 result -> save as `screenshots/q7.png`
 
 ![Q7 result](screenshots/qn7.png.jpg)
 
@@ -346,7 +342,6 @@ WHERE  previous_order_date IS NOT NULL
 ORDER BY customer_id, order_date;
 ```
 
-📸 **TAKE SCREENSHOT** of the Q8 result -> save as `screenshots/q8.png`
 
 ![Q8 result](screenshots/qn8.png.jpg)
 
@@ -370,8 +365,6 @@ ORDER BY customer_id, order_date;
 
 ## 5. Business interpretation
 
-*(This is a draft based on the results above. Reword it in your own words before you submit.)*
-
 - **Overall sales:** Sunrise made 199,200 in revenue from 15 orders, about 13,280 per order (Q7).
 - **Key customer:** Alice Uwase is the top spender with 85,500, about 43% of all revenue, and the only customer above the average spend of 39,840 (Q4, Q5). The other four buying customers are between 20,100 and 34,800. This shows the business depends heavily on one customer, which is a risk if she stops buying.
 - **Inactive customer:** Patrick Mugisha is registered but has never placed an order (Q3). Management could send him a welcome discount to turn him into a buyer.
@@ -381,7 +374,6 @@ ORDER BY customer_id, order_date;
 
 ## 6. Challenges and how I solved them
 
-*(Draft. Replace with what actually happened to you.)*
 
 - **Defining "average customer spend":** I calculated the average over customers who actually bought something (5 customers). Including Patrick at zero would lower the average to 33,200 and add Sandrine (34,800) to the above-average list. I chose the first meaning and stated it in the README.
 - **Calculating spend:** quantity and price are in different tables, so I joined customers -> orders -> order_items -> products and used `SUM(quantity * price)` in a CTE, then reused that CTE for the average and the ranking.
