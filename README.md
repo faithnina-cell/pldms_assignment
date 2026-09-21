@@ -31,61 +31,24 @@ Screenshots of the loaded tables prove the data meets the requirements (at least
 
 ### Table: customers
 
-📸 **TAKE SCREENSHOT** -> save as `screenshots/data_customers.png`
 
 ![customers](screenshots/data_customers.png.jpg)
 
-| customer_id | customer_name | email | city |
-|---|---|---|---|
-| 1 | Alice Uwase | alice.uwase@example.com | Kigali |
-| 2 | Eric Nshuti | eric.nshuti@example.com | Huye |
-| 3 | Grace Mukamana | grace.mukamana@example.com | Musanze |
-| 4 | David Habimana | david.habimana@example.com | Kigali |
-| 5 | Sandrine Ingabire | sandrine.ingabire@example.com | Rubavu |
-| 6 | Patrick Mugisha | patrick.mugisha@example.com | Kigali |
 
 
 ### Table: products
 
-📸 **TAKE SCREENSHOT** -> save as `screenshots/data_products.png`
+
 
 ![products](screenshots/data_products.png.jpg)
 
-| product_id | product_name | category | price |
-|---|---|---|---|
-| 1 | Rice 5kg | Grocery | 7500 |
-| 2 | Cooking Oil 3L | Grocery | 9000 |
-| 3 | Fresh Milk 1L | Dairy | 1200 |
-| 4 | Yoghurt 500ml | Dairy | 1500 |
-| 5 | Orange Juice 1L | Beverages | 2500 |
-| 6 | Bottled Water 1.5L | Beverages | 700 |
-| 7 | Laundry Detergent 1kg | Household | 4500 |
-| 8 | Dish Soap 500ml | Household | 2200 |
+
 
 
 ### Table: orders
 
-📸 **TAKE SCREENSHOT** -> save as `screenshots/data_orders.png`
 
 ![orders](screenshots/data_orders.png.jpg)
-
-| order_id | customer_id | order_date |
-|---|---|---|
-| 1 | 1 | 2026-03-02 |
-| 2 | 2 | 2026-03-05 |
-| 3 | 3 | 2026-03-12 |
-| 4 | 1 | 2026-03-20 |
-| 5 | 4 | 2026-04-03 |
-| 6 | 2 | 2026-04-10 |
-| 7 | 5 | 2026-04-18 |
-| 8 | 1 | 2026-05-02 |
-| 9 | 3 | 2026-05-09 |
-| 10 | 4 | 2026-05-21 |
-| 11 | 2 | 2026-06-04 |
-| 12 | 1 | 2026-06-15 |
-| 13 | 5 | 2026-07-01 |
-| 14 | 3 | 2026-07-12 |
-| 15 | 1 | 2026-08-03 |
 
 
 ### Table: order_items
@@ -94,50 +57,16 @@ Screenshots of the loaded tables prove the data meets the requirements (at least
 
 ![order_items](screenshots/data_order_items.png.jpg)
 
-| order_item_id | order_id | product_id | quantity |
-|---|---|---|---|
-| 1 | 1 | 1 | 2 |
-| 2 | 1 | 3 | 3 |
-| 3 | 2 | 2 | 1 |
-| 4 | 3 | 5 | 4 |
-| 5 | 3 | 6 | 6 |
-| 6 | 4 | 7 | 1 |
-| 7 | 4 | 8 | 2 |
-| 8 | 5 | 1 | 1 |
-| 9 | 5 | 4 | 4 |
-| 10 | 6 | 3 | 2 |
-| 11 | 7 | 2 | 2 |
-| 12 | 7 | 7 | 1 |
-| 13 | 8 | 1 | 3 |
-| 14 | 8 | 5 | 2 |
-| 15 | 9 | 6 | 10 |
-| 16 | 10 | 8 | 3 |
-| 17 | 11 | 4 | 5 |
-| 18 | 11 | 2 | 1 |
-| 19 | 12 | 7 | 2 |
-| 20 | 13 | 1 | 1 |
-| 21 | 13 | 3 | 4 |
-| 22 | 14 | 5 | 3 |
-| 23 | 14 | 8 | 1 |
-| 24 | 15 | 2 | 2 |
-| 25 | 15 | 6 | 5 |
-
 
 ### Table: row counts
 
-📸 **TAKE SCREENSHOT** -> save as `screenshots/data_counts.png`
+
 
 ![row counts](screenshots/data_counts.png.jpg)
 
-| table_name | row_count |
-|---|---|
-| customers | 6 |
-| products | 8 |
-| orders | 15 |
-| order_items | 25 |
 
 
----
+
 
 ## 4. Queries, explanations and results
 
@@ -159,25 +88,6 @@ ORDER BY o.order_date, o.order_id;
 
 ![Q1 result](screenshots/q1.png.jpg)
 
-**Expected result (15 rows):**
-
-| order_id | customer_name | city | order_date |
-|---|---|---|---|
-| 1 | Alice Uwase | Kigali | 2026-03-02 |
-| 2 | Eric Nshuti | Huye | 2026-03-05 |
-| 3 | Grace Mukamana | Musanze | 2026-03-12 |
-| 4 | Alice Uwase | Kigali | 2026-03-20 |
-| 5 | David Habimana | Kigali | 2026-04-03 |
-| 6 | Eric Nshuti | Huye | 2026-04-10 |
-| 7 | Sandrine Ingabire | Rubavu | 2026-04-18 |
-| 8 | Alice Uwase | Kigali | 2026-05-02 |
-| 9 | Grace Mukamana | Musanze | 2026-05-09 |
-| 10 | David Habimana | Kigali | 2026-05-21 |
-| 11 | Eric Nshuti | Huye | 2026-06-04 |
-| 12 | Alice Uwase | Kigali | 2026-06-15 |
-| 13 | Sandrine Ingabire | Rubavu | 2026-07-01 |
-| 14 | Grace Mukamana | Musanze | 2026-07-12 |
-| 15 | Alice Uwase | Kigali | 2026-08-03 |
 
 
 ### Q2 (JOIN) - Order items with product details (JOIN)
@@ -200,35 +110,7 @@ ORDER BY oi.order_item_id;
 
 ![Q2 result](screenshots/q2.png.jpg)
 
-**Expected result (25 rows):**
 
-| order_item_id | order_id | product_name | category | price | quantity |
-|---|---|---|---|---|---|
-| 1 | 1 | Rice 5kg | Grocery | 7500 | 2 |
-| 2 | 1 | Fresh Milk 1L | Dairy | 1200 | 3 |
-| 3 | 2 | Cooking Oil 3L | Grocery | 9000 | 1 |
-| 4 | 3 | Orange Juice 1L | Beverages | 2500 | 4 |
-| 5 | 3 | Bottled Water 1.5L | Beverages | 700 | 6 |
-| 6 | 4 | Laundry Detergent 1kg | Household | 4500 | 1 |
-| 7 | 4 | Dish Soap 500ml | Household | 2200 | 2 |
-| 8 | 5 | Rice 5kg | Grocery | 7500 | 1 |
-| 9 | 5 | Yoghurt 500ml | Dairy | 1500 | 4 |
-| 10 | 6 | Fresh Milk 1L | Dairy | 1200 | 2 |
-| 11 | 7 | Cooking Oil 3L | Grocery | 9000 | 2 |
-| 12 | 7 | Laundry Detergent 1kg | Household | 4500 | 1 |
-| 13 | 8 | Rice 5kg | Grocery | 7500 | 3 |
-| 14 | 8 | Orange Juice 1L | Beverages | 2500 | 2 |
-| 15 | 9 | Bottled Water 1.5L | Beverages | 700 | 10 |
-| 16 | 10 | Dish Soap 500ml | Household | 2200 | 3 |
-| 17 | 11 | Yoghurt 500ml | Dairy | 1500 | 5 |
-| 18 | 11 | Cooking Oil 3L | Grocery | 9000 | 1 |
-| 19 | 12 | Laundry Detergent 1kg | Household | 4500 | 2 |
-| 20 | 13 | Rice 5kg | Grocery | 7500 | 1 |
-| 21 | 13 | Fresh Milk 1L | Dairy | 1200 | 4 |
-| 22 | 14 | Orange Juice 1L | Beverages | 2500 | 3 |
-| 23 | 14 | Dish Soap 500ml | Household | 2200 | 1 |
-| 24 | 15 | Cooking Oil 3L | Grocery | 9000 | 2 |
-| 25 | 15 | Bottled Water 1.5L | Beverages | 700 | 5 |
 
 
 ### Q3 (JOIN) - All customers and their orders (LEFT JOIN)
