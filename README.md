@@ -1,17 +1,9 @@
 # PLSQL Assignment One - Sunrise Supermarket
-**Student name: Neza Faith Nina
-**Student ID: 20252SEN256
+**Student name: **Neza Faith Nina
+**Student ID: *20252SEN256
 **DBMS used:PostgreSQL
 
 
-
-
-> **How to use this file:** every `📸 TAKE SCREENSHOT` line marks a point where you run the query in your SQL tool,
-> capture the result grid, save it in the `screenshots/` folder with the file name shown, and keep the image line under it.
-> The result tables below are what you should see (I checked them on a test database). If your tool shows dates as
-> `02-MAR-26` instead of `2026-03-02`, that is just the Oracle date display format and is fine.
-
----
 
 ## 1. Business scenario summary
 
