@@ -32,7 +32,7 @@ Screenshots of the loaded tables prove the data meets the requirements (at least
 ### Table: customers
 
 
-![customers](screenshots/data_customers.png.jpg)
+![customers](screenshots/data_customer.png.jpg)
 
 
 
@@ -108,7 +108,7 @@ ORDER BY oi.order_item_id;
 
 📸 **TAKE SCREENSHOT** of the Q2 result -> save as `screenshots/q2.png`
 
-![Q2 result](screenshots/q2.png.jpg)
+![Q2 result](screenshots/qn2.png.jpg)
 
 
 
@@ -129,7 +129,7 @@ ORDER BY c.customer_id, o.order_date;
 
 📸 **TAKE SCREENSHOT** of the Q3 result -> save as `screenshots/q3.png`
 
-![Q3 result](screenshots/q3.png.jpg)
+![Q3 result](screenshots/qn3.png.jpg)
 
 **Expected result (16 rows):**
 
@@ -178,7 +178,7 @@ ORDER BY total_spent DESC;
 
 📸 **TAKE SCREENSHOT** of the Q4 result -> save as `screenshots/q4.png`
 
-![Q4 result](screenshots/q4.png.jpg)
+![Q4 result](screenshots/qn4.png.jpg)
 
 **Expected result (1 rows):**
 
@@ -212,7 +212,7 @@ ORDER BY spend_rank;
 
 📸 **TAKE SCREENSHOT** of the Q5 result -> save as `screenshots/q5.png`
 
-![Q5 result](screenshots/q5.png.jpg)
+![Q5 result](screenshots/qn5.png.jpg)
 
 **Expected result (5 rows):**
 
@@ -245,7 +245,7 @@ ORDER BY c.customer_id, order_number;
 
 📸 **TAKE SCREENSHOT** of the Q6 result -> save as `screenshots/q6.png`
 
-![Q6 result](screenshots/q6.png.jpg)
+![Q6 result](screenshots/qn6.png.jpg)
 
 **Expected result (15 rows):**
 
@@ -295,7 +295,7 @@ ORDER BY order_date, order_id;
 
 📸 **TAKE SCREENSHOT** of the Q7 result -> save as `screenshots/q7.png`
 
-![Q7 result](screenshots/q7.png.jpg)
+![Q7 result](screenshots/qn7.png.jpg)
 
 **Expected result (15 rows):**
 
@@ -348,7 +348,7 @@ ORDER BY customer_id, order_date;
 
 📸 **TAKE SCREENSHOT** of the Q8 result -> save as `screenshots/q8.png`
 
-![Q8 result](screenshots/q8.png.jpg)
+![Q8 result](screenshots/qn8.png.jpg)
 
 **Expected result (10 rows):**
 
